@@ -14,10 +14,10 @@ Requires
 
 The development system needs to have:
 
-	[Cordova](https://cordova.apache.org/)
-	[CMake and CPack](https://cmake.org/)
-	[Coraline](https://coraline.psychogenic.com/)
-	tools to build Linux bundles (distro dependent -- e.g. debuild, alien, etc)
+* [Cordova](https://cordova.apache.org/)
+* [CMake and CPack](https://cmake.org/)
+* [Coraline](https://coraline.psychogenic.com/) and
+* tools to build Linux bundles (distro dependent -- e.g. debuild, alien, etc)
 
 available.
 
