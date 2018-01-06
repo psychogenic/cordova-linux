@@ -1,4 +1,5 @@
-#cordova-linux
+cordova-linux
+=============
 
 Linux platform support for Cordova.
 
@@ -8,7 +9,9 @@ Cordova based applications are, at the core, applications written with web techn
 
 [Apache Cordova](https://cordova.apache.org/) is a project of The Apache Software Foundation (ASF).
 
-#Requires
+Requires
+=============
+
 The development system needs to have:
 
 	[Cordova](https://cordova.apache.org/)
@@ -18,7 +21,8 @@ The development system needs to have:
 
 available.
 
-#Usage
+Usage
+=====
 
 Use with existing or new projects, e.g.
 
@@ -30,3 +34,8 @@ Use with existing or new projects, e.g.
 Installable bundles (RPM, DEB, ZIP) will be produced, their location output at the end of the process.
 
 
+License
+=======
+
+Copyright (C) 2018 Pat Deegan, psychogenic.com
+Released under the Apache License 2.0 (see the LICENSE file for details).
