@@ -168,10 +168,10 @@ Api.prototype.addPlugin = function(plugin, installOptions) {
 	var dummyProject = {
 			write: function() {},
 			getInstaller: function() {
-				return dummyInstaller;
+				return dummyInstaller.install;
 			},
 			getUninstaller: function() {
-				return dummyInstaller;
+				return dummyInstaller.uninstall;
 			},
 
 	};
