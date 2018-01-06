@@ -1,0 +1,72 @@
+#
+#  {appname}
+#  {description}
+#  {author}
+#
+# Cmake template by Pat Deegan, psychogenic.com
+#
+
+cmake_minimum_required(VERSION 2.6)
+
+
+project({appidsuffix})
+
+
+find_package(PkgConfig REQUIRED)
+pkg_search_module(CORALINE REQUIRED coraline)
+
+#
+# Packaging
+#
+set(CPACK_SET_DESTDIR true)
+set(CPACK_PACKAGE_INSTALL_DIRECTORY "/usr/local" CACHE STRING "Install directory (default: /usr/local).")
+set(CPACK_INSTALL_PREFIX ${{CPACK_PACKAGE_INSTALL_DIRECTORY}} CACHE STRING "Install directory (default: /usr/local).")
+set(CPACK_PACKAGING_PREFIX ${{CPACK_PACKAGE_INSTALL_DIRECTORY}} CACHE STRING "Install directory (default: /usr/local).")
+
+set(CPACK_PACKAGE_INSTALL_DIRECTORY /usr/local CACHE STRING "Install directory (default: /usr/local).")
+if (ENV{{TRAVIS_TAG}})
+  set(CPACK_PACKAGE_VERSION $ENV{{TRAVIS_TAG}})
+else()
+  set(CPACK_PACKAGE_VERSION {version})
+endif()
+set(CPACK_PACKAGE_CONTACT "{author}")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "{description}")
+
+#
+# Debian, RPM and ZIP packages
+#
+if (CMAKE_SYSROOT)
+  # CPack does like RPM package in a cross-toolchain context
+  set(CPACK_GENERATOR "DEB;ZIP")
+else()
+  set(CPACK_GENERATOR "DEB;RPM;ZIP")
+endif()
+
+# Detect platform architecture to use it for the Debian package
+execute_process(COMMAND dpkg --print-architecture OUTPUT_VARIABLE CPACK_PACKAGE_DEBIAN_ARCHITECTURE OUTPUT_QUIET)
+
+
+
+
+set(CPACK_PACKAGE_FILE_NAME "${{CMAKE_PROJECT_NAME}}_${{CPACK_PACKAGE_VERSION}}")
+
+# TODO: Any required plugins?
+set(CPACK_RPM_PACKAGE_REQUIRES "coraline >= 1.0.13")
+set(CPACK_DEBIAN_PACKAGE_DEPENDS "coraline (>= 1.0.13)")
+
+#
+# List of files to install
+#
+
+# www -- built by cordova/ionic/whatever
+install(DIRECTORY {appidsuffix}
+	DESTINATION ${{CORALINE_PREFIX}}/share/coraline/content)
+
+# softlink to coraline
+install(FILES bin/{appidsuffix} DESTINATION bin)
+# desktop menu item
+install(FILES shortcuts/{appidsuffix}.desktop 
+	DESTINATION /usr/share/applications)
+
+
+include(CPack)

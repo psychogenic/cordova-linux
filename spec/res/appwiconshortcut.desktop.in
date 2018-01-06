@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name={appname}
+Exec=/usr/local/bin/{appidsuffix}
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
+Icon=/usr/local/share/coraline/content/{appidsuffix}/{icon}
+

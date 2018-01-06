@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        id        = "com.psychogenic.helloCordova"
+        version   = "0.0.6">
+    <name>Linux Cordova Platform</name>
+
+    <description>
+	    This is an implementation of the platform API that allows 
+	    for easy Linux deployment of cordova-based projects, using
+	    Coraline.
+    </description>
+
+    <author href="https://coraline.psychogenic.com" email="use-contact-form@psychogenic.com">
+        Pat Deegan, psychogenic.com
+    </author>
+
+    <content src="index.html" />
+
+</widget>

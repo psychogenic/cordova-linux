@@ -1,0 +1,47 @@
+{
+  "name": "cordova-linux",
+  "version": "0.0.6",
+  "description": "Linux platform used for coraline integration of cordova apps",
+  "create": "src/bin/create",
+  "main": "src/cordova/Api.js",
+  "scripts": {
+    "cover": "istanbul cover --root bin/templates/cordova --print detail jasmine",
+    "jshint": "jshint src && jshint spec",
+    "jasmine": "jasmine --captureExceptions --color",
+    "test": "npm run jshint && npm run jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/psychogenic/cordova-linux"
+  },
+  "keywords": [
+    "linux",
+    "apache",
+    "cordova",
+    "cordova-platform",
+    "coraline"
+  ],
+  "author": "Pat Deegan, psychogenic.com",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://issues.apache.org/jira/browse/CB"
+  },
+  "homepage": "https://github.com/psychogenic/cordova-linux#readme",
+  "maintainers": [
+    {
+      "name": "Pat Deegan",
+      "email": "use-contact-form@psychogenic.com"
+    }
+  ],
+  "dependencies": {
+    "colors": "^1.1.2",
+    "cordova-common": "^2.2.1",
+    "nopt": "^4.0.1",
+    "shelljs": "^0.3.0",
+    "string-template": "^1.0.0"
+  },
+  "devDependencies": {
+    "jasmine": "^2.5.3",
+    "jshint": "^2.9.4"
+  }
+}
