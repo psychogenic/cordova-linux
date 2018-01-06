@@ -300,15 +300,15 @@ Api.prototype.build = function(buildOptions) {
 		
 
 		/* figure out if we have any icon/splash, and any work to do in that department */
-		var icon = appConfig.getStaticResources('linux', 'icon').getDefault();
-		var splash = appConfig.getStaticResources('linux', 'splash').getDefault();
+		var icon = appConfig.getStaticResources('linux', 'icon').getDefault() || appConfig.getGlobalPreference('icon');
+		var splash = appConfig.getStaticResources('linux', 'splash').getDefault() || appConfig.getGlobalPreference('splash');
 
 		if (icon) {
 			tplVars.icon = api.setupStaticResource(icon);
 			if (! tplVars.icon ) {
 				api.rejectAndThrow('Could not find the icon specified for "linux" platform:' + icon.src, reject, 26);
 			}
-		}
+		} 
 		
 		if (splash) {
 			tplVars.splash = api.setupStaticResource(splash);
@@ -316,7 +316,7 @@ Api.prototype.build = function(buildOptions) {
 				api.rejectAndThrow('Could not find the icon specified for "linux" platform:' + splash.src, reject, 28);
 			}
 		}
-		
+
 
 		/* select appropriate shortcut file and write it to build dir */
 		var shortcutFile = 'appshortcut.desktop.in';
