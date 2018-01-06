@@ -158,9 +158,22 @@ Api.prototype.prepare = function(cordovaProject) {
 Api.prototype.addPlugin = function(plugin, installOptions) {
 
 	var self = this;
+	var dummyInstaller = {
+			install: function() {
+			},
+			uninstall: function() {
+			}
+	};
 	
 	var dummyProject = {
-			write: function() {}
+			write: function() {},
+			getInstaller: function() {
+				return dummyInstaller;
+			},
+			getUninstaller: function() {
+				return dummyInstaller;
+			},
+
 	};
 	
 	
